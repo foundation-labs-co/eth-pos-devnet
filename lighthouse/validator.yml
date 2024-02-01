@@ -1,0 +1,31 @@
+version: "3.8"
+services:
+  lighthouse-validator:
+    image: sigp/lighthouse
+    volumes:
+      - ../consensus/validatordata-lighthouse:/root/.lighthouse
+      - ../config:/config
+    ports:
+      - 5062:5062
+    command:
+      - lighthouse
+      - vc
+      # - --beacon-nodes=http://beacon-chain:3500
+      - --beacon-nodes=http://lighthouse-beacon-chain:5002
+      - --testnet-dir=/config
+      - --init-slashing-protection
+      - --graffiti=lighthouse-vc
+      - --suggested-fee-recipient=0x123463a4b065722e99115d6c222f267d9cabb524
+      - --debug-level=info
+      - --http
+      - --http-address=0.0.0.0
+      - --http-port=5062
+      - --http-allow-origin=*
+      - --unencrypted-http-transport
+    networks:
+      - proxy-network
+
+networks:
+  proxy-network:
+    external: true
+    name: custom_network
