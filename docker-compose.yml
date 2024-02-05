@@ -8,9 +8,9 @@ services:
     command:
       - testnet
       - generate-genesis
-      - --fork=capella
+      - --fork=phase0
       - --num-validators=64
-      - --genesis-time-delay=0
+      - --genesis-time-delay=30
       # - --genesis-time=1706717785
       - --output-ssz=/config/genesis.ssz
       - --chain-config-file=/config/config.yaml
@@ -96,8 +96,8 @@ services:
       - --nodiscover
       - --syncmode=full
       - --gcmode=archive
-      # - --mine
-      # - --miner.etherbase=0x123463a4b065722e99115d6c222f267d9cabb524
+      - --mine
+      - --miner.etherbase=0x123463a4b065722e99115d6c222f267d9cabb524
     ports:
       - 8551:8551
       - 8545:8545

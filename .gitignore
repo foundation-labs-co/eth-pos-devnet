@@ -1,4 +1,5 @@
 config/genesis.ssz
+config/genesis.ssz.json
 consensus/beacondata
 consensus/validatordata
 consensus/beacondata-lighthouse
