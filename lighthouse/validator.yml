@@ -10,8 +10,8 @@ services:
     command:
       - lighthouse
       - vc
-      - --beacon-nodes=http://beacon-chain:3500
-      # - --beacon-nodes=http://lighthouse-beacon-chain:5002
+      # - --beacon-nodes=http://beacon-chain:3500
+      - --beacon-nodes=http://lighthouse-beacon-chain:5002
       - --testnet-dir=/config
       - --init-slashing-protection
       - --graffiti=lighthouse-vc

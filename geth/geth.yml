@@ -1,0 +1,51 @@
+version: "3.8"
+services:
+  geth-genesis:
+    image: "ethereum/client-go:latest"
+    command: --datadir=/execution init /config/genesis.json
+    volumes:
+      - ../execution:/execution
+      - ../config/genesis.json:/config/genesis.json
+
+  geth:
+    image: "ethereum/client-go:latest"
+    command:
+      - --http
+      - --http.api=eth,net,web3,txpool,debug
+      - --http.addr=0.0.0.0
+      - --http.corsdomain=*
+      - --http.vhosts=*
+      - --ws
+      - --ws.api=eth,net,web3,txpool,debug
+      - --ws.addr=0.0.0.0
+      - --ws.origins=*
+      - --authrpc.vhosts=*
+      - --authrpc.addr=0.0.0.0
+      - --authrpc.jwtsecret=/config/jwtsecret
+      - --datadir=/execution
+      - --allow-insecure-unlock
+      - --unlock=0x123463a4b065722e99115d6c222f267d9cabb524
+      - --password=/execution/geth_password.txt
+      - --nodiscover
+      - --syncmode=full
+      - --gcmode=archive
+      - --mine
+      - --miner.etherbase=0x123463a4b065722e99115d6c222f267d9cabb524
+      - --miner.threads=3
+    ports:
+      - 8551:8551
+      - 8545:8545
+      - 8546:8546
+    depends_on:
+      geth-genesis:
+        condition: service_completed_successfully
+    volumes:
+      - ../execution:/execution
+      - ../config/jwtsecret:/config/jwtsecret
+      - ../execution/geth_password.txt:/execution/geth_password.txt
+    networks:
+      - proxy-network
+
+networks:
+  proxy-network:
+    name: custom_network
