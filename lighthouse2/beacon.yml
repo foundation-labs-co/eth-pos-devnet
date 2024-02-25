@@ -1,0 +1,38 @@
+version: "3.8"
+services:
+  lighthouse-beacon-chain2:
+    image: sigp/lighthouse
+    volumes:
+      - ../consensus/beacondata-lighthouse2:/root/.lighthouse
+      - ../config:/config
+    ports:
+      - 9200:9200
+      - 5102:5102
+    command:
+      - lighthouse
+      - beacon
+      - --execution-endpoint=http://geth2:9551
+      - --execution-jwt=/config/jwtsecret
+      - --testnet-dir=/config
+      - --disable-peer-scoring
+      - --disable-packet-filter
+      - --http-allow-sync-stalled
+      - --http
+      - --http-address=0.0.0.0
+      - --http-port=5102
+      - --http-allow-origin=*
+      - --gui
+      - --eth1
+      - --target-peers=1
+      - --enr-address=lighthouse-beacon-chain2
+      - --enr-udp-port=9200
+      - --enr-tcp-port=9200
+      - --port=9200
+      - --boot-nodes=enr:-MS4QDr_HECYh5w6GXasQUwAbbGDMYAA6sg053S6kvd9Mx_2Ag108GIL9X-H18gDnqnFEOR3VMGfkN8JkbbmcAfoTU0Dh2F0dG5ldHOIAAAAAAAAAACEZXRoMpAg6spDUAAAACBOAAAAAAAAgmlkgnY0gmlwhKwTAASEcXVpY4IjjYlzZWNwMjU2azGhA_vjWR8iY65EM7TsLDti9RVbwOt9kCrwspI8m6I4hrLDiHN5bmNuZXRzAIN0Y3CCI4yDdWRwgiOM
+    networks:
+      - proxy-network
+
+networks:
+  proxy-network:
+    external: true
+    name: custom_network

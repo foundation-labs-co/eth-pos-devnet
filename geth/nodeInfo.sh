@@ -1,0 +1,1 @@
+curl --data '{"method":"admin_nodeInfo","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST http://localhost:8545 | jq

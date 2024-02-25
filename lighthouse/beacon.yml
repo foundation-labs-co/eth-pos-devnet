@@ -24,10 +24,11 @@ services:
       - --gui
       - --eth1
       - --target-peers=1
-      - --enr-address=0.0.0.0
+      - --enr-address=lighthouse-beacon-chain
       - --enr-udp-port=9100
       - --enr-tcp-port=9100
       - --port=9100
+      - --boot-nodes=enr:-MS4QMM8bxICEbuuYd3kKm1Ylconl3Lvg69qjSY2KQybGVgQFwzkFa_MJnJA5abPHvD0PjfpwL3jBQtOjXZbuRHbdX0Dh2F0dG5ldHOIAAAAAAAAAACEZXRoMpAg6spDUAAAACBOAAAAAAAAgmlkgnY0gmlwhKwTAAaEcXVpY4Ij8YlzZWNwMjU2azGhA3XEa2iFTJfe8cNA2ZawJJP-qhOeJLwxkgHN8KHb1XfniHN5bmNuZXRzAIN0Y3CCI_CDdWRwgiPw
     networks:
       - proxy-network
 

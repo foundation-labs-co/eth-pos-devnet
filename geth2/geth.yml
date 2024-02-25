@@ -1,0 +1,49 @@
+version: "3.8"
+services:
+  geth-genesis2:
+    image: "ethereum/client-go:latest"
+    command: --datadir=/execution init /config/genesis.json
+    volumes:
+      - ../execution2:/execution
+      - ../config/genesis.json:/config/genesis.json
+
+  geth2:
+    image: "ethereum/client-go:latest"
+    command:
+      - --http
+      - --http.api=eth,net,web3,txpool,debug,admin
+      - --http.addr=0.0.0.0
+      - --http.corsdomain=*
+      - --http.vhosts=*
+      - --ws
+      - --ws.api=eth,net,web3,txpool,debug
+      - --ws.addr=0.0.0.0
+      - --ws.origins=*
+      - --authrpc.vhosts=*
+      - --authrpc.addr=0.0.0.0
+      - --authrpc.port=9551
+      - --authrpc.jwtsecret=/config/jwtsecret
+      - --datadir=/execution
+      - --allow-insecure-unlock
+      - --nodiscover
+      - --syncmode=full
+      - --gcmode=archive
+      - --port=30456
+      - --bootnodes=enode://85560f08ad3b73a5157c785541dcea71c23987b3803268b2223a2f354bfa2bdc9d9fbb9ad9c2b1a2837aeefd5e1a1378470bc8bb8fdbc5695faf610f66b24537@geth:30303
+    ports:
+      - 9551:9551
+      - 9545:8545
+      - 9546:8546
+      - 30456:30456
+    depends_on:
+      geth-genesis2:
+        condition: service_completed_successfully
+    volumes:
+      - ../execution2:/execution
+      - ../config/jwtsecret:/config/jwtsecret
+    networks:
+      - proxy-network
+
+networks:
+  proxy-network:
+    name: custom_network

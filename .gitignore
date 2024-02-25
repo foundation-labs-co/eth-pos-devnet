@@ -3,11 +3,14 @@ config/genesis.ssz.json
 consensus/beacondata
 consensus/validatordata
 consensus/beacondata-lighthouse
+consensus/beacondata-lighthouse2
 consensus/validatordata-lighthouse
 execution/geth
 execution/geth.ipc
 execution/sk.json
-lighthouse/validator_keys
+execution2/geth
+execution2/geth.ipc
+lighthouse/validator_keys*
 blockscout/blockscout-db-data
 blockscout/stats-db-data
 blockscout/redis-data

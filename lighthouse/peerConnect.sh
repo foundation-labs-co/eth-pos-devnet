@@ -1,0 +1,1 @@
+curl -X GET "http://localhost:5002/lighthouse/peers/connected" -H  "accept: application/json" | jq

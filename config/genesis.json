@@ -15,9 +15,13 @@
 		"londonBlock": 0,
 		"arrowGlacierBlock": 0,
 		"grayGlacierBlock": 0,
-		"shanghaiTime": 1707103772,
-		"cancunTime": 1947103700,
-		"terminalTotalDifficulty": 1000000
+		"shanghaiTime": 1708838700,
+		"cancunTime": 1708838700,
+		"terminalTotalDifficulty": 20,
+		"clique": {
+			"period": 4,
+			"epoch": 30000
+		}
 	},
 	"nonce": "0x0",
 	"timestamp": "0x65c055d4",

@@ -1,0 +1,1 @@
+curl -1s http:/127.0.0.1:5102/eth/v1/node/identity | jq
