@@ -28,7 +28,9 @@ services:
       - --enr-udp-port=9200
       - --enr-tcp-port=9200
       - --port=9200
-      - --boot-nodes=enr:-MS4QDr_HECYh5w6GXasQUwAbbGDMYAA6sg053S6kvd9Mx_2Ag108GIL9X-H18gDnqnFEOR3VMGfkN8JkbbmcAfoTU0Dh2F0dG5ldHOIAAAAAAAAAACEZXRoMpAg6spDUAAAACBOAAAAAAAAgmlkgnY0gmlwhKwTAASEcXVpY4IjjYlzZWNwMjU2azGhA_vjWR8iY65EM7TsLDti9RVbwOt9kCrwspI8m6I4hrLDiHN5bmNuZXRzAIN0Y3CCI4yDdWRwgiOM
+      - --boot-nodes=enr:-MS4QKGfaQHUIvxZLPewfSmbuY43zOxORqiTId_EIEXdWOD5YooVbuopo4rCYofhMk96Aup_OUW3LNDbgAh_oMYdBSg7h2F0dG5ldHOIAAAAAAAYAACEZXRoMpAg6spDUAAAACBOAAAAAAAAgmlkgnY0gmlwhKwXAASEcXVpY4IjjYlzZWNwMjU2azGhA7Pa6ijEhFYowZYz_eMRjQt-7l2gH3o8baYugdP2OYpmiHN5bmNuZXRzD4N0Y3CCI4yDdWRwgiOM,enr:-MS4QHjjWfXnPk24EJ_ri6T6c3xXth5FNAub1cqNyEGHC8YucCqt6_O5pdVEPxLFYjkwzPqAY_m8efhe9ZydzsD2oG8Kh2F0dG5ldHOIAQAAAAAAAICEZXRoMpAg6spDUAAAACBOAAAAAAAAgmlkgnY0gmlwhKwXAAaEcXVpY4IkVYlzZWNwMjU2azGhAvobuEvYSnWRB6znL8YrwmmpdCbljAhX-z9HhctTM09GiHN5bmNuZXRzAIN0Y3CCJFSDdWRwgiRU
+      - --purge-db
+      - --checkpoint-sync-url=http://lighthouse-beacon-chain:5002
     networks:
       - proxy-network
 
