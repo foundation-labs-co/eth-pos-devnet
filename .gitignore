@@ -31,3 +31,10 @@ config/genesis.ssz
 config/parsedBeaconState.json
 config/tranche_0000.txt
 .DS_Store
+deploy-contracts/artifacts
+deploy-contracts/cache
+deploy-contracts/node_modules
+deploy-contracts/yarn.lock
+deploy-contracts/package-lock.json
+genesis-generator/values.env-e
+config/genesis.json-e
