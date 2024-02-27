@@ -1,0 +1,1 @@
+docker compose -f ./geth/geth.yml down
