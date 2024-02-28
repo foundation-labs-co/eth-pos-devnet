@@ -1,6 +1,6 @@
 # Extends the mainnet preset
 PRESET_BASE: 'mainnet'
-CONFIG_NAME: testnet # needs to exist because of Prysm. Otherwise it conflicts with mainnet genesis
+CONFIG_NAME: devnet # needs to exist because of Prysm. Otherwise it conflicts with mainnet genesis
 
 # Genesis
 # ---------------------------------------------------------------
@@ -39,6 +39,8 @@ DENEB_FORK_EPOCH: $DENEB_FORK_EPOCH
 
 # Time parameters
 # ---------------------------------------------------------------
+# 6.4 minutes
+SLOTS_PER_EPOCH: $SLOTS_PER_EPOCH
 # 12 seconds
 SECONDS_PER_SLOT: $SLOT_DURATION_IN_SECONDS
 # 14 (estimate from Eth1 mainnet)

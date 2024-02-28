@@ -36,5 +36,7 @@ deploy-contracts/cache
 deploy-contracts/node_modules
 deploy-contracts/yarn.lock
 deploy-contracts/package-lock.json
+deploy-contracts/deploy_output.txt
 genesis-generator/values.env-e
 config/genesis.json-e
+ttd_time.txt
