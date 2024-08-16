@@ -1,6 +1,7 @@
 #!/bin/bash
 EL_BLOCK_TIME=4     # clique block time
-EL_TTD=20           # clique block target = TTD/2
+# EL_TTD=20           # clique block target = TTD/2
+EL_TTD=0           # clique block target = TTD/2
 EL_DELAY=60         # delay for startup CL
 
 CL_SLOT_PER_EPOCH=32
